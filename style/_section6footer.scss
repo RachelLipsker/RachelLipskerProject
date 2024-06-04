@@ -1,0 +1,86 @@
+/* section 6 - contact icons */
+.sec6 {
+    // background-color: $mainColor;
+    // background-image: linear-gradient(to right, $mainColor, $secondaryColor);
+    background-color: #fff;
+
+    ul {
+        display: grid;
+        width: 80vw;
+        margin: 0 auto;
+        grid-template-columns: repeat(6, 1fr);
+        padding: 4vh 0 3vh;
+
+        li {
+            list-style-type: none;
+            text-align: center;
+
+            p {
+                font-size: 14px;
+                margin: 10px;
+                text-shadow: 0 0 1px $mainColor;
+            }
+        }
+    }
+}
+
+// footer
+footer {
+    height: 50px;
+    background-color: #000;
+    border-bottom: 4px solid $mainColor;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+        color: $mainColor;
+        font-size: 20px;
+        font-weight: lighter;
+        margin: 10px 20px;
+
+        &:nth-of-type(2) {
+            text-align: right;
+        }
+    }
+}
+
+@media (max-width:890px) {
+    .sec6 ul {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding-top: 5vh;
+        padding-bottom: 4vh;
+
+        li p {
+            font-size: 13px;
+        }
+    }
+}
+
+@media (max-width:768px) {
+    footer {
+        height: 40px;
+
+        span {
+            font-size: 16px;
+        }
+    }
+
+}
+
+@media (max-width:576px) {
+    .sec6 ul {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3vh;
+    }
+
+    footer {
+        height: 30px;
+
+        span {
+            font-size: 12px;
+        }
+    }
+
+}

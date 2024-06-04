@@ -1,0 +1,81 @@
+/* the third section - about */
+.sec3 {
+    width: 80vw;
+    margin: 0 auto;
+
+    img {
+        display: block;
+        border-radius: 70px;
+        width: 140px;
+        margin: 0 auto;
+        margin-top: 12vh;
+        margin-bottom: 5vh;
+    }
+
+    h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        margin: 5vh;
+    }
+
+    p {
+        font-size: 20px;
+        text-align: center;
+        width: 50vw;
+        margin: 0 auto;
+        line-height: 1.5;
+    }
+
+    a:link,
+    a:visited {
+        display: block;
+        font-size: 20px;
+        color: #000;
+        border-radius: 25px;
+        width: 260px;
+        margin: 6vh auto 13vh;
+        background-color: $mainColor;
+        text-align: center;
+        text-decoration: none;
+        padding: 5px 0;
+        transition: all 0.5s ease-in-out;
+    }
+
+    a:hover {
+        background-color: $secondaryColor;
+    }
+}
+
+@media (max-width:900px) {
+    .sec3 p {
+        width: 80vw;
+    }
+}
+
+
+@media (max-width:576px) {
+    .sec3 {
+        img {
+            margin-top: 9vh;
+            margin-bottom: 4vh;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 3vh;
+        }
+
+        p {
+            font-size: 17px;
+        }
+
+        a:link {
+            font-size: 16px;
+            border-radius: 15px;
+            width: 135px;
+            padding: 5px;
+            margin: 3vh auto 8vh;
+        }
+    }
+}

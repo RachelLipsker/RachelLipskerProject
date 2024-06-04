@@ -1,0 +1,124 @@
+/* nav */
+header {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-top: 1px solid $mainColor;
+    background-color: #fff;
+    box-shadow: 0 1px 7px lightgray;
+    z-index: 10;
+}
+
+nav {
+    width: 80vw;
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: 35% 65%;
+}
+
+nav .item1 img {
+    display: block;
+    // width: 62px;
+    height: 55px;
+    margin: 10px;
+}
+
+
+nav ul li {
+    list-style-type: none;
+    float: right;
+
+    a {
+        text-decoration: none;
+        font-size: 22px;
+        color: #000;
+        line-height: 3.5;
+        padding: 15px;
+
+        &:hover {
+            color: $mainColor;
+            font-weight: bold;
+        }
+    }
+}
+
+
+#navButton,
+#humburger {
+    color: $mainColor;
+    display: none;
+}
+
+
+
+@media (max-width:900px) {
+    nav ul li a {
+        font-size: 19px;
+        line-height: 4.4;
+    }
+}
+
+@media (max-width:768px) {
+    nav ul {
+        display: none;
+    }
+
+    #humburger:checked+ul {
+        display: block;
+    }
+
+    nav {
+        grid-template-columns: 20% 60% 20%;
+    }
+
+    #navButton {
+        display: block;
+        font-size: 45px;
+        line-height: 1.8;
+    }
+
+    nav ul li {
+        clear: both;
+        width: 100vw;
+        background-color: #fff;
+        border-top: 1px solid $mainColor;
+        margin-right: -10vw;
+        padding-right: 9vw;
+
+        a {
+            margin: 0;
+        }
+    }
+
+
+    nav .item1 {
+        grid-column: 1/2
+    }
+
+    nav .item1 img {
+        height: 50px;
+    }
+
+    nav .item2 {
+        grid-column: 3/4;
+        text-align: right;
+    }
+}
+
+
+@media (max-width:576px) {
+    #navButton {
+        font-size: 33px;
+        line-height: 2.45;
+    }
+
+    nav .item1 img {
+        height: 45px;
+        margin-top: 16px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+}

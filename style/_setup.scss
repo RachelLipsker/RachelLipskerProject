@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Heebo;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a:link,
+a:visited,
+a:active {
+    color: #000;
+}
+
+$mainColor: aquamarine;
+$secondaryColor: #AEB8EB;
