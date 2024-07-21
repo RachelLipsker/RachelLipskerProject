@@ -1,0 +1,406 @@
+   :root {
+       --bgColor: #002C5F;
+       --borderColor: #1e6394;
+   }
+
+   * {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+       font-family: 'Heebo', sans-serif;
+   }
+
+   body {
+       background-image: url(../images/background.avif);
+       background-repeat: no-repeat;
+       background-size: cover;
+       font-size: 16px;
+       line-height: 1.6;
+   }
+
+   .container {
+       width: 80vw;
+       max-width: 1440px;
+       margin: 0 auto;
+       border-radius: 10px;
+       padding: 30px;
+   }
+
+   header {
+       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+       background-color: var(--bgColor);
+       border-radius: 8px;
+       padding: 50px 30px 30px;
+   }
+
+   h1 {
+       font-size: 2.5rem;
+       text-align: center;
+       margin-bottom: 20px;
+       font-weight: bold;
+       color: #fff;
+       letter-spacing: 1px;
+   }
+
+   form {
+       text-align: center;
+       margin-bottom: 20px;
+       padding: 15px;
+   }
+
+   form input[type=text] {
+       width: 60%;
+       max-width: 300px;
+       height: 40px;
+       border-radius: 5px;
+       font-size: 18px;
+       padding: 5px;
+       background-color: #a4dbff7d;
+       border: 0;
+       transition: border-color 0.3s ease;
+       color: #fff;
+   }
+
+   form input[type=text]::placeholder {
+       color: #ffffffa3;
+   }
+
+   form input[type=submit] {
+       width: 100px;
+       height: 40px;
+       cursor: pointer;
+       background-color: #FFDE53;
+       color: var(--borderColor);
+       border: none;
+       border-radius: 5px;
+       font-size: 1.2rem;
+       padding: 5px;
+       font-weight: 600;
+       transition: background-color 0.3s ease;
+   }
+
+   form input[type=submit]:hover {
+       background-color: #FFC433;
+   }
+
+   #cityCountry {
+       text-align: center;
+       margin: 15px 0;
+       font-size: 1.8rem;
+       font-weight: 500;
+       color: #fff;
+       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+       background-color: var(--bgColor);
+       border-radius: 8px;
+       border: 2px solid var(--borderColor);
+       color: #FFC433;
+   }
+
+   .mainWeather {
+       display: grid;
+       grid-template-columns: repeat(3, 1fr);
+       gap: 20px;
+       margin-bottom: 20px;
+       background-color: var(--bgColor);
+       padding: 20px;
+       border-radius: 10px;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+       text-align: center;
+       border: 2px solid var(--borderColor);
+   }
+
+   .mainWeather .icon {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+   }
+
+   .mainWeather .icon img {
+       display: block;
+       width: 80%;
+   }
+
+   .mainWeather .temp {
+       text-align: center;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+   }
+
+   .mainWeather .temp #temp {
+       font-weight: bold;
+       color: #fff;
+       font-size: 7rem;
+   }
+
+   .mainWeather .temp #feelsLike {
+       font-size: 1.5rem;
+       margin: 5px;
+       color: #fff;
+   }
+
+   .mainWeather .time {
+       color: #70CFEB;
+       font-size: 2rem;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+   }
+
+   .mainWeather .time #hour {
+       font-size: 3rem;
+       color: #00F8EF;
+   }
+
+
+
+   .parameters {
+       display: grid;
+       grid-template-columns: repeat(4, 1fr);
+       gap: 20px;
+       margin-bottom: 20px;
+   }
+
+   .parameters>div {
+       text-align: center;
+       padding: 10px;
+       border-radius: 5px;
+       box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+       background-color: var(--bgColor);
+       border: 2px solid var(--borderColor);
+   }
+
+   .parameters p {
+       font-size: 1.2rem;
+       font-weight: bold;
+       color: #BAAAE8;
+   }
+
+   .parameters div {
+       font-size: 1.4rem;
+       color: #fff;
+   }
+
+   .parameters #windDeg {
+       font-size: 1.2rem;
+   }
+
+   .circle-container,
+   .circle-container2 {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       border-radius: 50%;
+       width: 7vw;
+       height: 7vw;
+       margin: 0 auto;
+   }
+
+   .circle {
+       width: 6.5vw;
+       height: 6.5vw;
+       background-color: var(--bgColor);
+       border-radius: 50%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+   }
+
+
+
+
+   .timesDay {
+       display: grid;
+       grid-template-columns: repeat(2, 1fr);
+       gap: 20px;
+       margin-bottom: 20px;
+   }
+
+   .timesDay>div {
+       text-align: center;
+       padding: 10px;
+       border-radius: 5px;
+       box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+       background-color: var(--bgColor);
+       border: 2px solid var(--borderColor);
+   }
+
+   .timesDay p {
+       font-size: 1.2rem;
+       font-weight: bold;
+       color: #FFDE53;
+   }
+
+   .timesDay div {
+       font-size: 1.4rem;
+       color: #fff;
+       display: flex;
+       justify-content: space-evenly;
+       align-items: center;
+   }
+
+   .timesDay img {
+       width: 50px;
+       margin-left: 15px;
+   }
+
+
+   @media (max-width: 1100px) {
+       .mainWeather .temp #temp {
+           font-size: 6rem;
+       }
+
+       .mainWeather .time {
+           font-size: 1.6rem;
+       }
+
+       .mainWeather .time #hour {
+           font-size: 2rem;
+           /* color: #00F8EF; */
+       }
+
+
+       .parameters div,
+       .timesDay div {
+           font-size: 1.2rem;
+       }
+
+       .parameters #windDeg {
+           font-size: 1rem;
+       }
+
+       .circle-container,
+       .circle-container2 {
+           width: 9vw;
+           height: 9vw;
+       }
+
+       .circle {
+           width: 8.4vw;
+           height: 8.4vw;
+       }
+   }
+
+
+   @media (max-width: 768px) {
+       .container {
+           width: 93vw;
+       }
+
+       .mainWeather {
+           grid-template-columns: 1fr 1fr;
+           text-align: center;
+       }
+
+       .mainWeather .icon img {
+           width: 90%;
+       }
+
+       .mainWeather .time {
+           grid-column: 1/3;
+           grid-row: 1/2;
+           flex-direction: row;
+           justify-content: space-evenly;
+       }
+
+       .mainWeather .time #hour {
+           color: #70CFEB;
+           font-size: 1.6rem;
+       }
+
+       .parameters {
+           grid-template-columns: repeat(2, 1fr);
+       }
+
+       .timesDay {
+           grid-template-columns: 1fr;
+           gap: 10px;
+       }
+
+       .circle-container,
+       .circle-container2 {
+           width: 12vw;
+           height: 12vw;
+       }
+
+       .circle {
+           width: 11.4vw;
+           height: 11.4vw;
+       }
+   }
+
+   @media (max-width: 576px) {
+       .container {
+           width: 97vw;
+       }
+
+       .mainWeather .icon img {
+           width: 100%;
+       }
+
+       .mainWeather .temp #temp {
+           font-size: 5rem;
+       }
+
+       .mainWeather .temp #feelsLike,
+       .mainWeather .time,
+       .mainWeather .time #hour {
+           font-size: 1.2rem;
+       }
+
+
+       .circle-container,
+       .circle-container2 {
+           width: 16vw;
+           height: 16vw;
+       }
+
+       .circle {
+           width: 15.4vw;
+           height: 15.4vw;
+       }
+   }
+
+
+   @media (max-width: 460px) {
+       form input[type=text] {
+           width: 100%;
+           font-size: 16px;
+           text-align: center;
+       }
+
+       form input[type=submit] {
+           width: 100%;
+           font-size: 1rem;
+           margin-top: 10px;
+       }
+
+       #cityCountry {
+           font-size: 1.3rem;
+       }
+
+       .mainWeather .temp #temp {
+           font-size: 4rem;
+       }
+
+       .mainWeather .temp #feelsLike {
+           font-size: 1rem;
+       }
+
+       .mainWeather .temp #feelsLike,
+       .mainWeather .time,
+       .mainWeather .time #hour {
+           font-size: 15px;
+       }
+
+       .circle-container,
+       .circle-container2 {
+           width: 20vw;
+           height: 20vw;
+       }
+
+       .circle {
+           width: 19vw;
+           height: 19vw;
+       }
+   }

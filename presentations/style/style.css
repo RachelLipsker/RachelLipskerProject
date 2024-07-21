@@ -3,13 +3,23 @@
     --secondaryColor: #AEB8EB;
 }
 
-.section1 {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     margin-top: 75px;
+}
+
+.section1 {
+    /* margin-top: 75px; */
     background-image: linear-gradient(to right, var(--mainColor), var(--secondaryColor));
 }
 
 .section1 h1 {
-    padding-top: 130px;
+    padding-top: 70px;
     font-size: 6rem;
     text-align: center;
     text-shadow: 1px 1px 12px rgba(0, 0, 0, 0.9);
@@ -28,7 +38,7 @@
 }
 
 .section1 .links {
-    padding-bottom: 110px;
+    padding-bottom: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,9 +104,91 @@
     display: none;
 }
 
+
+/* game-present-page */
+.game-present {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: start;
+    background-color: #F6F6F6;
+    width: 100%;
+    padding: 13vh 10vw;
+}
+
+.game-present img {
+    width: 25vw;
+    border-radius: 15px;
+    margin: 50px;
+    display: block;
+}
+
+.game-present h1 {
+    padding-top: 70px;
+    font-size: 4rem;
+    text-align: right;
+}
+
+.game-present p {
+    font-size: 1.25rem;
+    width: 45vw;
+    margin: 20px auto;
+    text-align: right;
+}
+
+.game-present .links {
+    display: flex;
+    align-items: center;
+}
+
+.game-present .links a:link,
+.game-present .links a:visited {
+    width: 153px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: aquamarine;
+    color: #000;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    line-height: 2;
+    margin: 7px 15px;
+    transition: all 0.5s ease-in-out;
+}
+
+.game-present .links a:hover {
+    background-color: var(--secondaryColor);
+}
+
+@media (max-width:950px) {
+    .game-present {
+        flex-direction: column-reverse;
+        align-items: center;
+        padding: 3vh 10vw;
+    }
+
+    .game-present img {
+        width: 50vw;
+    }
+
+    .game-present p {
+        width: 65vw;
+        text-align: center;
+    }
+
+    .game-present h1 {
+        text-align: center;
+    }
+
+    .game-present .links {
+        justify-content: center;
+    }
+}
+
+
 @media (max-width:768px) {
     .section1 h1 {
-        padding-top: 90px;
+        padding-top: 60px;
         font-size: 4rem;
     }
 
@@ -106,7 +198,7 @@
     }
 
     .section1 .links {
-        padding-bottom: 70px;
+        padding-bottom: 60px;
     }
 
     .section3 img:nth-child(1) {
@@ -120,16 +212,29 @@
 
 @media (max-width:576px) {
     .section1 h1 {
-        padding-top: 70px;
+        padding-top: 50px;
         font-size: 2.9rem;
     }
 
-    .section1 p {
-        font-size: 15px;
+    .section1 p,
+    .game-present p {
+        font-size: 17px;
     }
 
     .section1 .links {
-        padding-bottom: 60px;
+        padding-bottom: 50px;
+        flex-direction: column;
+    }
+
+    .game-present h1 {
+        font-size: 2.9rem;
+    }
+
+    .game-present img {
+        width: 70vw;
+    }
+
+    .game-present .links {
         flex-direction: column;
     }
 }

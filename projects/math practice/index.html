@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400;500&family=Heebo:wght@100..900&family=Satisfy&family=Varela+Round&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+    <form action="">
+        <h1>תרגילים בחשבון</h1>
+        <select id="practiceType" dir="rtl">
+            <option value="+">חיבור מספרים עד עשר</option>
+            <option value="-">חיסור מספרים עד עשר</option>
+            <option value="&#215;">לוח הכפל</option>
+            <option value=":">חילוק</option>
+        </select>
+        <div>
+            <span id="num1"></span>
+            <span id="sign"></span>
+            <span id="num2"></span>
+            <span>=</span>
+            <input type="text" id="answer">
+        </div>
+        <input type="button" value="בדוק תשובה" id="check">
+        <input type="button" value="דלג לשאלה הבאה" id="next">
+        <div id="response"></div>
+    </form>
+
+    <script src="./script/app.js"></script>
+</body>
+
+</html>

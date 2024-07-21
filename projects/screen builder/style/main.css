@@ -1,0 +1,148 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: Heebo;
+ }
+
+ .container {
+     display: flex;
+ }
+
+ .sec1 {
+     width: 70vw;
+     background-color: #efefef;
+     min-height: 100vh;
+ }
+
+ #space {
+     width: 80%;
+     margin: 4vh 10%;
+     background-color: #fff;
+     min-height: 92vh;
+     overflow-x: hidden;
+ }
+
+ .sec2 {
+     background-color: rgb(51, 51, 51);
+     width: 30vw;
+     padding: 40px;
+
+ }
+
+ h1 {
+     color: #f806bb;
+     text-align: center;
+     margin: 10px;
+
+ }
+
+ p {
+     text-align: center;
+     margin-bottom: 15px;
+     color: #fff;
+ }
+
+ form div {
+     margin: 7px;
+ }
+
+ form label {
+     font-size: 15px;
+     color: #fff;
+
+ }
+
+ span {
+     color: #fff;
+ }
+
+ form input[type=number] {
+     width: 60px;
+ }
+
+ form input[type=text] {
+     width: 100px;
+ }
+
+ form input[type=button] {
+     padding: 8px;
+     font-weight: bold;
+     transition: all 0.3s ease-in-out;
+     color: #fff;
+     margin: 5px 0;
+     font-size: 16px;
+ }
+
+ #btn {
+     background-color: #00c04a;
+     width: 100%;
+ }
+
+ #btn:hover {
+     background-color: #60e292;
+ }
+
+ #reset {
+     background-color: none;
+     color: #fff;
+     text-align-last: left;
+     font-size: 22px;
+     font-weight: bold;
+     cursor: default;
+     margin: 7px;
+     transition: all 0.3s ease-in-out;
+ }
+
+ #reset:hover {
+     color: #ffffffd7;
+ }
+
+ #saveScreen,
+ #go2saves {
+     width: 50%;
+     background-color: #f806bb;
+ }
+
+ #saveScreen:hover,
+ #go2saves:hover {
+     background-color: #fd78db;
+ }
+
+ #response {
+     font-size: 14px;
+     margin: 3px;
+ }
+
+ @media (max-width: 1060px) {
+     .sec2 {
+         width: 40vw;
+     }
+
+     .sec1 {
+         width: 60vw;
+     }
+
+     #space {
+         width: 90%;
+         margin: 4vh 5%;
+     }
+ }
+
+ @media (max-width: 790px) {
+     .container {
+         flex-direction: column-reverse;
+         align-items: center;
+         overflow-x: hidden;
+     }
+
+     .sec1,
+     .sec2 {
+         width: 100vw;
+     }
+
+     .sec1,
+     #space {
+         min-height: 50vh;
+     }
+ }

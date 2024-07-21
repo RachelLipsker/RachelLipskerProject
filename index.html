@@ -11,7 +11,7 @@
         href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400;500&family=Heebo:wght@100..900&family=Satisfy&family=Varela+Round&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="./style/main.css">
 
 </head>
 
@@ -20,19 +20,19 @@
     <!-- nav -->
     <header>
         <nav>
-            <div class="item1">
-                <img src="./images/logo.png" alt="62X62">
-            </div>
-            <div class="item2">
+            <img src="./images/logo.png" alt="logo" id="logo">
+
+            <div class="hum">
                 <label id="navButton" for="humburger"> &#9776; </label>
                 <input type="checkbox" id="humburger" />
-                <ul>
-                    <li><a href="#head" id="Ahead">ראשי</a></li>
-                    <li><a href="#about" id="Aabout">אודות</a></li>
-                    <li><a href="#service" id="Aservice">שירותים</a></li>
-                    <li><a href="#contact" id="Acontact">צור קשר</a></li>
-                </ul>
             </div>
+
+            <ul>
+                <li><a href="#top" id="navhead">ראשי</a></li>
+                <li><a href="#about" id="navabout">אודות</a></li>
+                <li><a href="#service" id="navservice">שירותים</a></li>
+                <li><a href="#contact" id="navcontact">צור קשר</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -79,13 +79,14 @@
 
     <!-- the fourth section - works -->
     <section class="sec4" id="service">
-        <h2>עבודות נבחרות
+        <h2>דפי נחיתה
         </h2>
-        <p>
+        <!-- <p>
             דף נחיתה רספונסיבי - הפתרון האולטימטיבי
             <br>
             הדרך היעילה להבאת לקוחות במינימום משאבים
-        </p>
+        </p> -->
+
         <div class="cards">
             <div class="cardwork">
                 <div class="wrap">
@@ -179,6 +180,64 @@
     </section>
 
 
+    <!-- section 4.1 - js projects -->
+    <section class="sec41">
+        <h2>משחקים
+        </h2>
+        <div class="icons">
+            <img src="./images/img-JS-removebg-preview.png" alt="icon">
+            <img src="./images/img-ES6-removebg-preview.png" alt="icon">
+            <img src="./images/img-OOP-removebg-preview.png" alt="icon">
+            <img src="./images/img-API-removebg-preview.png" alt="icon">
+        </div>
+        <div class="cards">
+            <div class="cardwork">
+                <a href="./presentations/reversi.html" target="_blank" rel="noopener noreferrer">
+                    <img src="./images/reversi.png" alt="gallery">
+                </a>
+                <h3>ריברסי</h3>
+            </div>
+
+
+            <div class="cardwork">
+                <a href="./presentations/ticTacToe.html" target="_blank" rel="noopener noreferrer">
+                    <img src="./images/tictactoe.png" alt="gallery">
+                </a>
+                <h3>איקס עיגול</h3>
+            </div>
+
+            <div class="cardwork">
+                <a href="./presentations/mathPractice.html" target="_blank" rel="noopener noreferrer">
+                    <img src="./images/mathpractice.png" alt="gallery">
+                </a>
+                <h3>תרגילים בחשבון</h3>
+            </div>
+
+            <div class="cardwork">
+                <a href="./presentations/todolist.html" target="_blank" rel="noopener noreferrer">
+                    <img src="./images/todolist.png" alt="gallery">
+                </a>
+                <h3>ניהול משימות</h3>
+            </div>
+
+            <div class="cardwork">
+                <a href="./presentations/screenBuilder.html" target="_blank" rel="noopener noreferrer">
+                    <img src="./images/screenbuilder.png" alt="gallery">
+                </a>
+                <h3>בונה מסכים</h3>
+            </div>
+
+
+            <div class="cardwork">
+                <a href="./presentations/weather.html" target="_blank" rel="noopener noreferrer">
+                    <img src="./images/weather.png" alt="gallery">
+                </a>
+                <h3>מזג אוויר</h3>
+            </div>
+        </div>
+    </section>
+
+
     <!-- the fifth sction - contact -->
     <section class="sec5" id="contact">
         <img src="./images/rectangle.png" alt="rectangle">
@@ -239,6 +298,7 @@
     </footer>
 
 
+    <script src="./script/app.js"></script>
 </body>
 
 </html>

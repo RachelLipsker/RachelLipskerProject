@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400;500&family=Heebo:wght@100..900&family=Satisfy&family=Varela+Round&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./style/style.css">
+
+</head>
+
+<body dir="rtl">
+    <div class="container">
+        <header>
+            <h1>מזג האוויר עכשיו</h1>
+
+            <form action="">
+                <input type="text" id="cityName" placeholder="כתוב שם עיר">
+                <input type="submit" value="חפש">
+            </form>
+        </header>
+
+        <div id="cityCountry"></div>
+
+        <div class="mainWeather">
+            <div class="icon">
+                <img src="" alt="" id="icon">
+            </div>
+
+            <div class="temp">
+                <div id="temp"></div>
+                <div id="feelsLike"></div>
+            </div>
+
+            <div class="time">
+                <div id="day"></div>
+                <div id="date"></div>
+                <div id="hour"></div>
+            </div>
+        </div>
+
+
+        <div class="parameters">
+            <div class="humidity">
+                <p>לחות</p>
+                <div class="circle-container">
+                    <div class="circle">
+                        <div id="humidity"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visibility">
+                <p>ראות</p>
+                <div id="visibility"></div>
+            </div>
+
+            <div class="clouds">
+                <p>עננות</p>
+                <div class="circle-container2">
+                    <div class="circle">
+                        <div id="clouds"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wind">
+                <p>רוח</p>
+                <div id="windSpeed"></div>
+                <div id="windDeg"></div>
+            </div>
+        </div>
+
+        <div class="timesDay">
+            <div class="sunrise">
+                <div>
+                    <img src="sunrise.png" alt="">
+                    <p>זריחה:</p>
+                </div>
+                <div id="sunrise"></div>
+            </div>
+
+            <div class="sunset">
+                <div>
+                    <img src="sunset.png" alt="">
+                    <p>שקיעה:</p>
+                </div>
+                <div id="sunset"></div>
+            </div>
+        </div>
+
+    </div>
+    <script src="./script/app.js"></script>
+</body>
+
+</html>

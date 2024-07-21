@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #CEDEF7;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+  padding: 20px;
+  color: #000;
+}
+
+.container {
+  margin: 100px auto 30px;
+  border-radius: 10px;
+  padding: 20px;
+  width: 55vw;
+  background-color: #f9f9f9;
+  width: 60vw;
+}
+
+form {
+  display: flex;
+  margin: 0 auto 30px;
+  width: 90%;
+}
+
+input {
+  padding: 10px;
+  font-size: 17px;
+  border: 0;
+}
+
+form input[type=text] {
+  flex-grow: 1;
+}
+
+form input[type=submit] {
+  width: 55px;
+  background-color: #6E9CE8;
+  color: white;
+  transition: all 0.2s ease-in-out;
+  font-weight: bold;
+}
+
+form input[type=submit]:hover {
+  background-color: #4c86e3;
+}
+
+.todo-table {
+  width: 90%;
+  margin: 0 auto 20px;
+  border-collapse: collapse;
+}
+
+.todo-row:hover {
+  background-color: #f1f1f1;
+}
+
+.todo-cell {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.todo-cell:nth-child(4n),
+.todo-cell:nth-child(4n+3),
+.todo-cell:nth-child(4n+1) {
+  width: 43px;
+}
+
+img[alt=delete],
+img[alt=save],
+img[alt=edit] {
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+img:hover {
+  transform: translateY(-1px);
+  transform: scale(1.07);
+}
+
+input[type=checkbox] {
+  display: block;
+  font-size: 50px;
+  border-radius: 50%;
+}
+
+.done-task {
+  background-color: #C1F7C6;
+}
+
+.done-task:hover {
+  background-color: #aff6b6;
+}
+
+
+
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 30px;
+  height: 30px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 9px;
+  top: 3px;
+  width: 8px;
+  height: 16px;
+  border: solid #6E9CE8;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+input[type="checkbox"]:checked {
+  background-color: white;
+}
+
+input[type="checkbox"]:checked::after {
+  display: block;
+}
+
+input[type="checkbox"]:hover {
+  background-color: #ccc;
+}
+
+
+
+@media (max-width: 920px) {
+  .container {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 90vw;
+    margin-top: 45px;
+  }
+}
+
+
+@media (max-width: 425px) {
+  form {
+    flex-direction: column;
+  }
+
+  form input[type=text],
+  form input[type=submit] {
+    width: 100%;
+  }
+}
