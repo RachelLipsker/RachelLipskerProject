@@ -1,33 +1,43 @@
-"use strict";
 class Word {
-    constructor(word, hint) {
-        let newWord = "";
-        for (let i = 0; i < word.length; i++) {
-            if (word[i] == "ם") {
-                newWord += "מ";
-            }
-            else if (word[i] == "ן") {
-                newWord += "נ";
-            }
-            else if (word[i] == "ץ") {
-                newWord += "צ";
-            }
-            else if (word[i] == "ף") {
-                newWord += "פ";
-            }
-            else if (word[i] == "ך") {
-                newWord += "ב";
-            }
-            else {
-                newWord += word[i];
-            }
+    #word: string = "";
+    #hint: string = "";
+    get word() {
+        return this.#word;
+    }
+    set word(value: string) {
+        let newWord: string = value.slice(0, -1);
+        if (value[value.length - 1] == "ם") {
+            newWord += "מ";
+        } else if (value[value.length - 1] == "ן") {
+            newWord += "נ";
+        } else if (value[value.length - 1] == "ץ") {
+            newWord += "צ";
+        } else if (value[value.length - 1] == "ף") {
+            newWord += "פ";
+        } else if (value[value.length - 1] == "ך") {
+            newWord += "ב";
+        } else {
+            newWord += value[value.length - 1];
         }
-        this.word = newWord;
-        this.hint = "רמז: " + hint;
+        this.#word = newWord;
+    }
+    get hint() {
+        return this.#hint;
+    }
+    set hint(value: string) {
+        this.#hint = "רמז: " + value;
+    }
+    constructor(word: string, hint: string) {
+        this.word = word;
+        this.hint = hint;
+    }
+    getCharsWord(): string[] {
+        return this.#word.split("");
     }
 }
+
 //בניית מערך עם מילים ורמזים
-let wordsArr = [];
+let wordsArr: Word[] = [];
 wordsArr.push(new Word("אברהם", "אבינו"));
 wordsArr.push(new Word("יצחק", "אבינו"));
 wordsArr.push(new Word("יעקב", "אבינו"));
@@ -92,31 +102,32 @@ wordsArr.push(new Word("שכם", "שם רעו צאן בני יעקב"));
 wordsArr.push(new Word("מדין", "ארץ יתרו"));
 wordsArr.push(new Word("מרה", "שם התמתקו המים"));
 wordsArr.push(new Word("רפידים", "משם נסעו להר סיני"));
-const htmlWord = document.querySelector('.word');
-const htmlHint = document.querySelector('.hint');
-const cells = document.querySelectorAll('.cell');
-const span = document.querySelector('.incorrect span');
-const img = document.querySelector('img');
-let randomWord = getRandomWord();
-let charsWord = getCharsWord(randomWord);
-let htmlChars = presentWord(randomWord);
-let counterCorrect = 0;
-let counterIncorrect = 0;
+
+const htmlWord: HTMLDivElement = document.querySelector('.word') as HTMLDivElement;
+const htmlHint: HTMLDivElement = document.querySelector('.hint') as HTMLDivElement;
+const cells: NodeListOf<HTMLDivElement> = document.querySelectorAll('.cell');
+const span: HTMLSpanElement = document.querySelector('.incorrect span') as HTMLSpanElement;
+const img: HTMLImageElement = document.querySelector('img') as HTMLImageElement;
+
+let randomWord: Word = getRandomWord();
+let charsWord: string[] = randomWord.getCharsWord();
+let htmlChars: HTMLDivElement[] = presentWord(randomWord);
+
+let counterCorrect: number = 0;
+let counterIncorrect: number = 0;
+
 //פונקציה לבחירת מילה אקראית
-function getRandomWord() {
-    let random = Math.floor(Math.random() * wordsArr.length);
+function getRandomWord(): Word {
+    let random: number = Math.floor(Math.random() * wordsArr.length);
     return wordsArr[random];
 }
-//פונקציה לבניית מערך עם אותיות המילה
-function getCharsWord(word) {
-    return word.word.split("");
-}
+
 //פונקציה שבונה דיבים מציגה אותם על המסך ושומרת במערך
-function presentWord(word) {
+function presentWord(word: Word): HTMLDivElement[] {
     htmlHint.innerText = word.hint;
-    let htmlChars = [];
-    for (let i = 0; i < word.word.length; i++) {
-        let char = document.createElement('div');
+    let htmlChars: HTMLDivElement[] = [];
+    for (let i: number = 0; i < word.word.length; i++) {
+        let char: HTMLDivElement = document.createElement('div');
         char.innerText = "_";
         char.classList.add('char');
         htmlWord.appendChild(char);
@@ -124,10 +135,11 @@ function presentWord(word) {
     }
     return htmlChars;
 }
+
 //פונקציה הבודקת אם אות קיימת במילה ושומרת את המיקומים במערך
-function checkChar(char, charsWord) {
-    let places = [];
-    for (let i = 0; i < charsWord.length; i++) {
+function checkChar(char: string, charsWord: string[]): number[] {
+    let places: number[] = [];
+    for (let i: number = 0; i < charsWord.length; i++) {
         if (char == charsWord[i]) {
             places.push(i);
         }
@@ -135,40 +147,42 @@ function checkChar(char, charsWord) {
     counterCorrect += places.length;
     return places;
 }
+
 //פונקציית צעד המשחק שתופעל בלחיצה על כל אות
-function clickChar(char, index) {
-    let places = checkChar(char, charsWord);
+function clickChar(char: string, index: number): void {
+    let places: number[] = checkChar(char, charsWord);
     if (places.length >= 1) {
-        for (let i = 0; i < places.length; i++) {
+        for (let i: number = 0; i < places.length; i++) {
             htmlChars[places[i]].innerText = charsWord[places[i]];
         }
         if (counterCorrect == charsWord.length) {
             htmlHint.innerText = "כל הכבוד!";
-            cells.forEach((cell) => {
+            cells.forEach((cell: HTMLDivElement) => {
                 cell.style.pointerEvents = 'none';
-            });
+            })
         }
-    }
-    else {
+    } else {
         counterIncorrect++;
         span.innerText = `${counterIncorrect}/6`;
         img.src = `./images/${counterIncorrect}.png`;
         if (counterIncorrect == 6) {
             htmlHint.innerText = `אולי תצליח בפעם הבאה. התשובה היא: ${randomWord.word}`;
-            cells.forEach((cell) => {
+            cells.forEach((cell: HTMLDivElement) => {
                 cell.style.pointerEvents = 'none';
-            });
+            })
         }
     }
     cells[index].style.backgroundColor = '#9194D0';
     cells[index].style.pointerEvents = 'none';
 }
-cells.forEach((cell, index) => {
-    cell.addEventListener('click', () => {
+
+cells.forEach((cell: HTMLDivElement, index: number): void => {
+    cell.addEventListener('click', (): void => {
         clickChar(cell.innerText, index);
-    });
-});
-const button = document.querySelector('button');
-button.addEventListener('click', () => {
+    })
+})
+
+const button: HTMLButtonElement = document.querySelector('button') as HTMLButtonElement;
+button.addEventListener('click', (): void => {
     location.reload();
-});
+})

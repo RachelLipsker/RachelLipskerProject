@@ -1,30 +1,61 @@
+"use strict";
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+};
+var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
+    if (kind === "m") throw new TypeError("Private method is not writable");
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+};
+var _Word_word, _Word_hint;
 class Word {
-    word: string;
-    hint: string;
-    constructor(word: string, hint: string) {
-        let newWord: string = "";
-        for (let i: number = 0; i < word.length; i++) {
-            if (word[i] == "ם") {
-                newWord += "מ";
-            } else if (word[i] == "ן") {
-                newWord += "נ";
-            } else if (word[i] == "ץ") {
-                newWord += "צ";
-            } else if (word[i] == "ף") {
-                newWord += "פ";
-            } else if (word[i] == "ך") {
-                newWord += "ב";
-            } else {
-                newWord += word[i];
-            }
+    get word() {
+        return __classPrivateFieldGet(this, _Word_word, "f");
+    }
+    set word(value) {
+        let newWord = value.slice(0, -1);
+        if (value[value.length - 1] == "ם") {
+            newWord += "מ";
         }
-        this.word = newWord;
-        this.hint = "רמז: " + hint;
+        else if (value[value.length - 1] == "ן") {
+            newWord += "נ";
+        }
+        else if (value[value.length - 1] == "ץ") {
+            newWord += "צ";
+        }
+        else if (value[value.length - 1] == "ף") {
+            newWord += "פ";
+        }
+        else if (value[value.length - 1] == "ך") {
+            newWord += "ב";
+        }
+        else {
+            newWord += value[value.length - 1];
+        }
+        __classPrivateFieldSet(this, _Word_word, newWord, "f");
+    }
+    get hint() {
+        return __classPrivateFieldGet(this, _Word_hint, "f");
+    }
+    set hint(value) {
+        __classPrivateFieldSet(this, _Word_hint, "רמז: " + value, "f");
+    }
+    constructor(word, hint) {
+        _Word_word.set(this, "");
+        _Word_hint.set(this, "");
+        this.word = word;
+        this.hint = hint;
+    }
+    getCharsWord() {
+        return __classPrivateFieldGet(this, _Word_word, "f").split("");
     }
 }
-
+_Word_word = new WeakMap(), _Word_hint = new WeakMap();
 //בניית מערך עם מילים ורמזים
-let wordsArr: Word[] = [];
+let wordsArr = [];
 wordsArr.push(new Word("אברהם", "אבינו"));
 wordsArr.push(new Word("יצחק", "אבינו"));
 wordsArr.push(new Word("יעקב", "אבינו"));
@@ -89,37 +120,27 @@ wordsArr.push(new Word("שכם", "שם רעו צאן בני יעקב"));
 wordsArr.push(new Word("מדין", "ארץ יתרו"));
 wordsArr.push(new Word("מרה", "שם התמתקו המים"));
 wordsArr.push(new Word("רפידים", "משם נסעו להר סיני"));
-
-const htmlWord: HTMLDivElement = document.querySelector('.word') as HTMLDivElement;
-const htmlHint: HTMLDivElement = document.querySelector('.hint') as HTMLDivElement;
-const cells: NodeListOf<HTMLDivElement> = document.querySelectorAll('.cell');
-const span: HTMLSpanElement = document.querySelector('.incorrect span') as HTMLSpanElement;
-const img: HTMLImageElement = document.querySelector('img') as HTMLImageElement;
-
-let randomWord: Word = getRandomWord();
-let charsWord: string[] = getCharsWord(randomWord);
-let htmlChars: HTMLDivElement[] = presentWord(randomWord);
-
-let counterCorrect: number = 0;
-let counterIncorrect: number = 0;
-
+const htmlWord = document.querySelector('.word');
+const htmlHint = document.querySelector('.hint');
+const cells = document.querySelectorAll('.cell');
+const span = document.querySelector('.incorrect span');
+const img = document.querySelector('img');
+let randomWord = getRandomWord();
+let charsWord = randomWord.getCharsWord();
+let htmlChars = presentWord(randomWord);
+let counterCorrect = 0;
+let counterIncorrect = 0;
 //פונקציה לבחירת מילה אקראית
-function getRandomWord(): Word {
-    let random: number = Math.floor(Math.random() * wordsArr.length);
+function getRandomWord() {
+    let random = Math.floor(Math.random() * wordsArr.length);
     return wordsArr[random];
 }
-
-//פונקציה לבניית מערך עם אותיות המילה
-function getCharsWord(word: Word): string[] {
-    return word.word.split("");
-}
-
 //פונקציה שבונה דיבים מציגה אותם על המסך ושומרת במערך
-function presentWord(word: Word): HTMLDivElement[] {
+function presentWord(word) {
     htmlHint.innerText = word.hint;
-    let htmlChars: HTMLDivElement[] = [];
-    for (let i: number = 0; i < word.word.length; i++) {
-        let char: HTMLDivElement = document.createElement('div');
+    let htmlChars = [];
+    for (let i = 0; i < word.word.length; i++) {
+        let char = document.createElement('div');
         char.innerText = "_";
         char.classList.add('char');
         htmlWord.appendChild(char);
@@ -127,11 +148,10 @@ function presentWord(word: Word): HTMLDivElement[] {
     }
     return htmlChars;
 }
-
 //פונקציה הבודקת אם אות קיימת במילה ושומרת את המיקומים במערך
-function checkChar(char: string, charsWord: string[]): number[] {
-    let places: number[] = [];
-    for (let i: number = 0; i < charsWord.length; i++) {
+function checkChar(char, charsWord) {
+    let places = [];
+    for (let i = 0; i < charsWord.length; i++) {
         if (char == charsWord[i]) {
             places.push(i);
         }
@@ -139,42 +159,40 @@ function checkChar(char: string, charsWord: string[]): number[] {
     counterCorrect += places.length;
     return places;
 }
-
 //פונקציית צעד המשחק שתופעל בלחיצה על כל אות
-function clickChar(char: string, index: number): void {
-    let places: number[] = checkChar(char, charsWord);
+function clickChar(char, index) {
+    let places = checkChar(char, charsWord);
     if (places.length >= 1) {
-        for (let i: number = 0; i < places.length; i++) {
+        for (let i = 0; i < places.length; i++) {
             htmlChars[places[i]].innerText = charsWord[places[i]];
         }
         if (counterCorrect == charsWord.length) {
             htmlHint.innerText = "כל הכבוד!";
-            cells.forEach((cell: HTMLDivElement) => {
+            cells.forEach((cell) => {
                 cell.style.pointerEvents = 'none';
-            })
+            });
         }
-    } else {
+    }
+    else {
         counterIncorrect++;
         span.innerText = `${counterIncorrect}/6`;
         img.src = `./images/${counterIncorrect}.png`;
         if (counterIncorrect == 6) {
             htmlHint.innerText = `אולי תצליח בפעם הבאה. התשובה היא: ${randomWord.word}`;
-            cells.forEach((cell: HTMLDivElement) => {
+            cells.forEach((cell) => {
                 cell.style.pointerEvents = 'none';
-            })
+            });
         }
     }
     cells[index].style.backgroundColor = '#9194D0';
     cells[index].style.pointerEvents = 'none';
 }
-
-cells.forEach((cell: HTMLDivElement, index: number): void => {
-    cell.addEventListener('click', (): void => {
+cells.forEach((cell, index) => {
+    cell.addEventListener('click', () => {
         clickChar(cell.innerText, index);
-    })
-})
-
-const button: HTMLButtonElement = document.querySelector('button') as HTMLButtonElement;
-button.addEventListener('click', (): void => {
+    });
+});
+const button = document.querySelector('button');
+button.addEventListener('click', () => {
     location.reload();
-})
+});
